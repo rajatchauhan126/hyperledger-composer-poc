@@ -1,0 +1,31 @@
+
+/**
+*queries for commodity trading business network
+*/
+
+query selectCommodities {
+  description: "Select all commodities"
+  statement: 
+    SELECT org.example.mynetwork.Commodity
+}
+
+query selectCommoditiesByExchange {
+  description: "Select all commodities by exchange"
+  statement:
+    SELECT org.example.mynetwork.Commodity
+      WHERE (mainExchange==_$exchange)
+}
+
+query selectCommoditiesByOwner {
+  description: "Select commodities by owner"
+  statement:
+    SELECT org.example.mynetwork.Commodity
+      WHERE (owner == _$owner)
+}
+
+query selectCommoditiesWithHighQuantity {
+  description: "Select commodities with high quantity"
+  statement:
+    SELECT org.example.mynetwork.Commodity
+      WHERE (quantity > 100)
+}
